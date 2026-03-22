@@ -5,66 +5,735 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小島の100人プロジェクト</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: sans-serif;
-      background: #f8f6f1;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background: #f7f5f2;
       color: #222;
       line-height: 1.8;
     }
-    header {
-      background: white;
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    h1 {
-      font-size: 2rem;
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid #ebe7e1;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f1df 100%);
+      border-bottom: 1px solid #e5dfd6;
+      padding: 72px 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #f3efe8;
+      border: 1px solid #ddd6ca;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 14px;
       margin-bottom: 20px;
     }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.3;
+      margin: 0 0 24px;
     }
-    section {
-      background: white;
-      margin-bottom: 24px;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 14px;
     }
-    a.button {
+
+    h3 {
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      font-size: 19px;
+      color: #4c4c4c;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
       display: inline-block;
-      background: #d97706;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-main {
+      background: #d48516;
       color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 12px;
+    }
+
+    .button-dark {
+      background: #222;
+      color: white;
+    }
+
+    .button-light {
+      background: white;
+      border: 1px solid #d7d0c5;
+      color: #333;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .stat-label {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .section-sub {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .profile-image {
+      width: 100%;
+      border-radius: 24px;
+      min-height: 320px;
+      background: linear-gradient(135deg, #efe7da, #ddd1bc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7b6c55;
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .back-top {
+      text-align: right;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .person-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      background: #ece8e1;
+    }
+
+    .person-no {
+      font-size: 14px;
+      color: #777;
+      font-weight: 700;
+    }
+
+    .person-role {
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .person-copy {
+      margin-top: 16px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .person-meta {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .person-meta div {
+      margin-top: 8px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #f1ede7;
+      color: #555;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .contact-dark {
+      background: #222;
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .contact-dark small {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    .contact-dark p {
       margin-top: 12px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .footer {
+      border-top: 1px solid #e5dfd6;
+      padding: 24px 0 40px;
+      color: #777;
+      font-size: 14px;
+      background: #fff;
+      margin-top: 30px;
+    }
+
+    .floating-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #222;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    ul.simple-list {
+      margin: 18px 0 0;
+      padding-left: 1.2em;
+      color: #444;
+    }
+
+    ul.simple-list li {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .two-column,
+      .grid-3,
+      .contact-box,
+      .stats,
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .hero {
+        padding: 56px 0;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .hero-text {
+        font-size: 17px;
+      }
+
+      .card {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>小島の100人プロジェクト</h1>
-    <p>100人の人に会って話を聴き、学びを深め、講演や教育活動につなげていくプロジェクトです。</p>
+  <div id="top"></div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge">小島の100人プロジェクト</div>
+      <h1>
+        100人に会いにいく。<br>
+        人生を聴き、語り、変化を生む。
+      </h1>
+      <p class="hero-text">
+        「オレか、オレ以外か」じゃない。<br>
+        オレ以外は、みんな先生だった。<br><br>
+
+        だから、会いにいく。<br>
+        生き方を聴き、そして自分の言葉で語る。<br><br>
+
+        聴くことで、自分が変わる。<br>
+        語ることで、誰かの人生が変わる。<br><br>
+
+        これは、自分と、誰かの生き方に向き合う旅だ。
+      </p>
+
+      <div class="button-row">
+        <a class="button button-main" href="#contact">話してみる</a>
+        <a class="button button-dark" href="#people">出会った人を見る</a>
+        <a class="button button-light" href="#wants">やりたいことを見る</a>
+        <a class="button button-light" href="#services">できることを見る</a>
+      </div>
+
+      <div class="stats">
+        <div class="card">
+          <div class="stat-label">現在の記録人数</div>
+          <div class="stat-number">4 / 100</div>
+        </div>
+        <div class="card">
+          <div class="stat-label">プロジェクトの軸</div>
+          <div class="stat-number" style="font-size:28px;">対話 / 記録 / 変化</div>
+        </div>
+        <div class="card">
+          <div class="stat-label">今のテーマ</div>
+          <div class="stat-number" style="font-size:28px;">教育と生き方</div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>これは公開テストページです</h2>
-      <p>
-        まずはホームページをインターネット上で見られる状態にするため、
-        最初のファイルを作っています。
-      </p>
-      <p>
-        ここから少しずつ、
-        トップページ・プロフィール・できること・出会った人一覧
-        を整えていきます。
-      </p>
-      <a class="button" href="#">話してみる</a>
-    </section>
-  </main>
+  <section id="profile" class="section">
+    <div class="container">
+      <div class="two-column">
+        <div class="card">
+          <div class="section-head">
+            <h2>小島大和について</h2>
+          </div>
+          <p style="color:#555;">
+            <strong>学びの編集者／高知県の高校教師</strong><br>
+            探究型の学びを実践しながら、答えのない問いを問い続けている。<br><br>
+
+            理科・地学の教員として、正解のない問いから学びをつくる探究型の授業を実践している。<br><br>
+
+            同じように、バレーボール・ビーチバレーボールの指導を通して、挑戦することそのものから成長する力を育てる。<br><br>
+
+            <strong>「このままでいいのか？」</strong>という問いを持ち続けながら、
+            人と出会い、問いを深め、語り続けている。<br><br>
+
+            聴くことで、自分が変わる。<br>
+            語ることで、誰かの人生が変わる。
+          </p>
+        </div>
+
+        <div style="display:grid; gap:18px;">
+          <div class="profile-image">
+            ここにプロフィール写真を入れられます<br>
+            （今は仮の表示です）
+          </div>
+
+          <div class="card" style="background:#f3efe8;">
+            <h3 style="font-size:18px;">こんな人に会いたい</h3>
+            <ul class="simple-list">
+              <li>自分の人生について考えている人</li>
+              <li>何かに挑戦している人</li>
+              <li>これから変わりたいと思っている人</li>
+              <li>自分の話を誰かに聴いてほしい人</li>
+            </ul>
+            <p style="margin-top:16px; font-size:14px; color:#777;">
+              ※ あなたもこの中の一人かもしれません
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wants" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <h2>やりたいこと</h2>
+        <p class="section-sub">
+          まずは、会って話を聴かせてほしい。そこからすべてが始まります。遠くても、近くても、タイミングが合えばどこへでも会いにいきます。
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>気軽に会う</h3>
+          <p>特別な準備はいりません。雑談でも大丈夫です。ほんの少し時間があれば、それだけで十分です。あなたのこれまでや今考えていることを、気軽に聴かせてください。</p>
+        </div>
+
+        <div class="card">
+          <h3>人生を聴く</h3>
+          <p>挑戦や転機、迷いも含めて、その人の生き方をその人の言葉で聴きたい。オレ以外はみんな先生だと思って向き合います。</p>
+        </div>
+
+        <div class="card">
+          <h3>対話をひらく</h3>
+          <p>一方的に聴くだけでなく、問いを行き来しながら一緒に考える。対話の中で、新しい視点や気づきが生まれる時間をつくります。</p>
+        </div>
+
+        <div class="card">
+          <h3>語り合う</h3>
+          <p>聴くだけでなく、自分の言葉でも語る。その往復の中で、互いの問いを深めていきます。</p>
+        </div>
+      </div>
+
+      <div class="back-top">
+        <a href="#top">↑ 先頭に戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <h2>できること</h2>
+        <p class="section-sub">対話・講演・教育・スポーツ指導を通して、学びや生き方に向き合う時間をつくります。</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>対話</h3>
+          <p>1対1や少人数での対話を通して、その人の中にある「まだ言葉になっていないもの」に触れていきます。問いを行き来しながら、考えや迷い、これまでの経験をほどき、自分自身の言葉として立ち上げていく時間です。</p>
+        </div>
+
+        <div class="card">
+          <h3>講演</h3>
+          <p>教育・生き方・挑戦をテーマに、実践や出会いをもとに講演を行います。答えを伝えるのではなく、聴いた人それぞれの中に問いが立ち上がる時間をつくります。ご希望のテーマや場に合わせて、内容を一緒に組み立てていきます。</p>
+        </div>
+
+        <div class="card">
+          <h3>教育</h3>
+          <p>理科・地学の学びや探究型授業の実践を通して、知識を「自分ごと」に変えていきます。知識を伝えるのではなく、双方向のやりとりから学びを創り、問いから学びを深めていく授業をつくっていきます。</p>
+        </div>
+
+        <div class="card">
+          <h3>コーチング</h3>
+          <p>バレーボール・ビーチバレーボールの指導を通して、挑戦することそのものから成長する力を育てていきます。技術だけでなく、目や身体、思考の使い方に意識を向けることで、普段の練習の見え方そのものを変えていきます。</p>
+        </div>
+
+        <div class="card">
+          <h3>防災</h3>
+          <p>南海トラフ地震をはじめとした防災について、仕組みやリスクを伝えるだけでなく、「自分はどうするのか」を考える問いとして届けます。学校・地域・講演など、場や対象に応じて内容を組み立てながら、知識を行動につなげていく時間をつくっていきます。</p>
+        </div>
+
+        <div class="card">
+          <h3>飲み会要員</h3>
+          <p>
+            高知といえばお酒。<br>
+            飲みの場も、立派な対話の場です。<br><br>
+            かしこまった場では出てこない言葉や、本音がふとこぼれる。<br>
+            そんな時間を、一緒に楽しくつくれたらうれしいです。<br><br>
+            ※飲み会要員、大歓迎。
+          </p>
+        </div>
+      </div>
+
+      <div class="back-top">
+        <a href="#top">↑ 先頭に戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="people" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <h2>これまでに出会った人</h2>
+        <p class="section-sub">一人ひとりの人生の選択や言葉が、このプロジェクトを前に進めています。</p>
+      </div>
+
+      <div class="people-grid">
+        <article class="card">
+          <div class="person-no">No.001</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-001/800/520" alt="谷村一成さんの写真">
+          <h3 style="margin-top:16px;">谷村一成</h3>
+          <div class="person-role">NPO法人みんなの進路委員会 代表</div>
+          <div class="person-copy">見えていない世界へ踏み出すことも、進路選択のひとつ。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>正直、この人に会えるだけで得をしたと思えるレベル。生徒や教員の視野を本気で広げ続けていて、そのエネルギーと行動力は圧倒的。関わった人の世界を確実に変えてしまう力を持っている。</div>
+            <div><strong>転機：</strong>見えている世界だけで進路を決めるのではなく、未知の世界に踏み出す価値を体現しているところに強く惹かれた。</div>
+            <div><strong>学び：</strong>問いに向き合い続けること、その覚悟こそが生き方になると感じた。この人の話は、何度でも聞きたい。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#教育</span>
+            <span class="tag">#キャリア教育</span>
+            <span class="tag">#探究</span>
+            <span class="tag">#海外</span>
+            <span class="tag">#挑戦</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.002</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-002/800/520" alt="のなみモカさんの写真">
+          <h3 style="margin-top:16px;">のなみモカ</h3>
+          <div class="person-role">大学生（海外進学に挑戦）</div>
+          <div class="person-copy">固定された進路観にとらわれず、自分の道を切り開く。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>この人の話を聞けただけで価値があると思えた存在。自分で稼ぎ、自分で選び、自分で進む。その生き方そのものがメッセージになっていて、エネルギーがとにかくすごい。</div>
+            <div><strong>転機：</strong>環境や常識に従うのではなく、自分で人生を選び取っている姿に衝撃を受けた。</div>
+            <div><strong>学び：</strong>「環境のせいにしない」という生き方を、言葉ではなく行動で教えてくれた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#学生</span>
+            <span class="tag">#海外</span>
+            <span class="tag">#挑戦</span>
+            <span class="tag">#キャリア</span>
+            <span class="tag">#語学</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.003</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-003/800/520" alt="岡崎純來さんの写真">
+          <h3 style="margin-top:16px;">岡崎純來</h3>
+          <div class="person-role">高校生・留学経験スピーカー</div>
+          <div class="person-copy">制度に縛られず、自分の学びを主体的に設計する。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>正直、年齢とか関係なく完全にやられた。高校生とは思えない決断力と行動力を持ち、さらにその経験を言葉にして伝える力も圧倒的。大人でもここまでできる人はなかなかいない。</div>
+            <div><strong>転機：</strong>制度に従うのではなく、自分で進路を選び直したその覚悟に強く心を打たれた。</div>
+            <div><strong>学び：</strong>年齢は関係ない。自分の人生は自分で選べるということを突きつけられた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#学生</span>
+            <span class="tag">#留学</span>
+            <span class="tag">#挑戦</span>
+            <span class="tag">#教育</span>
+            <span class="tag">#プレゼン</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.004</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-004/800/520" alt="森田幸浩さんの写真">
+          <h3 style="margin-top:16px;">森田幸浩</h3>
+          <div class="person-role">フランス料理ケータリング『voyage』経営</div>
+          <div class="person-copy">「このままでいいのか」という問いに、生き方で答える。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>この人の生き方は、ずっと頭に残る。安定ではなく、自分の問いに正直に生きることを選んだ人。その姿そのものが強いメッセージになっていて、「自分はどう生きるか」を考えさせられた。</div>
+            <div><strong>転機：</strong>「このままでいいのか」という問いから逃げずに、自分の道を選び直したところに惹かれた。</div>
+            <div><strong>学び：</strong>問いに向き合い続けること、その覚悟こそが生き方になると感じた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#起業</span>
+            <span class="tag">#料理</span>
+            <span class="tag">#移住</span>
+            <span class="tag">#キャリア転換</span>
+            <span class="tag">#挑戦</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:22px; text-align:center;">
+        <a class="button button-light" href="#">一覧ページは次に作成予定</a>
+      </div>
+
+      <div class="back-top">
+        <a href="#top">↑ 先頭に戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="request" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="card">
+        <div class="section-head">
+          <h2>一緒にできること（ご相談）</h2>
+        </div>
+        <p style="color:#555;">
+          講演・対話・授業づくり・コーチングなど、場や目的に応じて一緒に形をつくっていくことができます。<br><br>
+          「こんなことできるかな？」くらいの段階でも大丈夫です。まずは対話の中で、一緒に考えていけたらうれしいです。
+        </p>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="card" style="background:#f3efe8;">
+            <h3 style="font-size:18px;">講演・ワークショップ</h3>
+            <p>教育・生き方・挑戦などをテーマに、その場に合わせて一緒に内容をつくります。</p>
+          </div>
+
+          <div class="card" style="background:#f3efe8;">
+            <h3 style="font-size:18px;">対話・コーチング</h3>
+            <p>個人・少人数での対話を通して、考えや問いを深める時間をつくります。</p>
+          </div>
+
+          <div class="card" style="background:#f3efe8;">
+            <h3 style="font-size:18px;">授業・教育連携</h3>
+            <p>探究的な学びや授業づくりについて、現場に合わせて一緒に設計していきます。</p>
+          </div>
+
+          <div class="card" style="background:#f3efe8;">
+            <h3 style="font-size:18px;">その他</h3>
+            <p>「こんなことできる？」という相談からでも大丈夫です。</p>
+          </div>
+        </div>
+
+        <p style="margin-top:18px; color:#777; font-size:14px;">
+          ※ 基本的にはお互いノーギャラでやっていますが、交通費等をご負担いただける場合はとても助かります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="contact-box">
+        <div class="card">
+          <div class="section-head">
+            <h2>まずは、話してみませんか？</h2>
+          </div>
+          <p style="color:#555;">
+            このプロジェクトは、出会いから始まります。<br>
+            雑談でも、少しの時間でも大丈夫なので、少しでもお話しできたらうれしいです。<br><br>
+
+            あなたのこれまでや、いま考えていることを、気軽に聴かせてください。<br><br>
+
+            遠くても、近くても、タイミングが合えば会いにいきます。
+          </p>
+
+          <ul class="simple-list">
+            <li>自分の人生を少し言葉にしてみたい方</li>
+            <li>誰かに話を聴いてほしい方</li>
+            <li>教育や生き方について対話してみたい方</li>
+          </ul>
+        </div>
+
+        <div class="contact-dark">
+          <small>まずは一言</small>
+          <p>
+            「会ってもいいよ」<br>
+            「少し話してみたい」<br><br>
+
+            その一言をもらえたら、うれしいです。<br><br>
+
+            こちらから日程などご相談させていただきますので、気軽にご連絡ください。
+          </p>
+
+          <a class="button button-main" href="#" style="margin-top:18px;">連絡してみる</a>
+
+          <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-top:16px;">
+            ※ 後日GoogleフォームやSNSリンクを設置予定
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container" style="max-width:850px;">
+      <div class="card" style="background:#f8f5ef;">
+        <h3 style="font-size:18px;">このプロジェクトのリアル</h3>
+        <p style="margin-top:12px; color:#666;">
+          基本的にはお互いノーギャラでやっています。<br>
+          ただ、高知の西の端にいるので、移動にどうしてもお金がかかります。<br>
+          交通費を出していただける機会があれば、めちゃくちゃうれしいです。<br>
+          もちろん、なくても行きます。<br>
+          そして、もし何かいただけるものがあれば、遠慮なく受け取ります（笑）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © 小島の100人プロジェクト / Ojima 100 People Project
+    </div>
+  </footer>
+
+  <a class="floating-top" href="#top">↑ 先頭へ</a>
 </body>
 </html>
