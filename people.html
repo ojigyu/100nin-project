@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出会った人たち | 小島の100人プロジェクト</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background: #f7f5f2;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f1df 100%);
+      border-bottom: 1px solid #e5dfd6;
+      padding: 56px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f3efe8;
+      border: 1px solid #ddd6ca;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid #ebe7e1;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      background: #222;
+      color: white;
+      font-weight: 700;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .person-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      background: #ece8e1;
+      display: block;
+    }
+
+    .person-no {
+      font-size: 14px;
+      color: #777;
+      font-weight: 700;
+    }
+
+    .person-role {
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .person-copy {
+      margin-top: 16px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .person-meta {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .person-meta div {
+      margin-top: 8px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #f1ede7;
+      color: #555;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .footer {
+      border-top: 1px solid #e5dfd6;
+      padding: 24px 0 40px;
+      color: #777;
+      font-size: 14px;
+      background: #fff;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="badge">小島の100人プロジェクト</div>
+      <h1>出会った人たち</h1>
+      <p>
+        100人の人に会って話を聴くプロジェクトの記録です。<br>
+        一人ひとりの人生の選択や言葉が、このプロジェクトを前に進めています。
+      </p>
+      <a class="button" href="index.html">トップページに戻る</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="people-grid">
+        <article class="card">
+          <div class="person-no">No.001</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-001/800/520" alt="谷村一成さんの写真">
+          <h2 style="margin-top:16px;">谷村一成</h2>
+          <div class="person-role">NPO法人みんなの進路委員会 代表</div>
+          <div class="person-copy">見えていない世界へ踏み出すことも、進路選択のひとつ。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>正直、この人に会えるだけで得をしたと思えるレベル。生徒や教員の視野を本気で広げ続けていて、そのエネルギーと行動力は圧倒的。</div>
+            <div><strong>学び：</strong>問いに向き合い続けること、その覚悟こそが生き方になると感じた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#教育</span>
+            <span class="tag">#キャリア教育</span>
+            <span class="tag">#探究</span>
+            <span class="tag">#海外</span>
+            <span class="tag">#挑戦</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.002</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-002/800/520" alt="のなみモカさんの写真">
+          <h2 style="margin-top:16px;">のなみモカ</h2>
+          <div class="person-role">大学生（海外進学に挑戦）</div>
+          <div class="person-copy">固定された進路観にとらわれず、自分の道を切り開く。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>この人の話を聞けただけで価値があると思えた存在。自分で稼ぎ、自分で選び、自分で進む。その生き方そのものがメッセージになっている。</div>
+            <div><strong>学び：</strong>「環境のせいにしない」という生き方を、言葉ではなく行動で教えてくれた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#学生</span>
+            <span class="tag">#海外</span>
+            <span class="tag">#挑戦</span>
+            <span class="tag">#キャリア</span>
+            <span class="tag">#語学</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.003</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-003/800/520" alt="岡崎純來さんの写真">
+          <h2 style="margin-top:16px;">岡崎純來</h2>
+          <div class="person-role">高校生・留学経験スピーカー</div>
+          <div class="person-copy">制度に縛られず、自分の学びを主体的に設計する。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>高校生とは思えない決断力と行動力を持ち、その経験を言葉にして伝える力も圧倒的。</div>
+            <div><strong>学び：</strong>年齢は関係ない。自分の人生は自分で選べるということを突きつけられた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#学生</span>
+            <span class="tag">#留学</span>
+            <span class="tag">#挑戦</span>
+            <span class="tag">#教育</span>
+            <span class="tag">#プレゼン</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="person-no">No.004</div>
+          <img class="person-image" src="https://picsum.photos/seed/ojima-004/800/520" alt="森田幸浩さんの写真">
+          <h2 style="margin-top:16px;">森田幸浩</h2>
+          <div class="person-role">フランス料理ケータリング『voyage』経営</div>
+          <div class="person-copy">「このままでいいのか」という問いに、生き方で答える。</div>
+          <div class="person-meta">
+            <div><strong>概要：</strong>安定ではなく、自分の問いに正直に生きることを選んだ人。その姿そのものが強いメッセージになっている。</div>
+            <div><strong>学び：</strong>問いに向き合い続けること、その覚悟こそが生き方になると感じた。</div>
+          </div>
+          <div class="tags">
+            <span class="tag">#起業</span>
+            <span class="tag">#料理</span>
+            <span class="tag">#移住</span>
+            <span class="tag">#キャリア転換</span>
+            <span class="tag">#挑戦</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © 小島の100人プロジェクト / Ojima 100 People Project
+    </div>
+  </footer>
+</body>
+</html>
