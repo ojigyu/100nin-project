@@ -1,302 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>出会った人たち | 小島の100人プロジェクト</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-      background: #f7f5f2;
-      color: #222;
-      line-height: 1.8;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1100px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f1df 100%);
-      border-bottom: 1px solid #e5dfd6;
-      padding: 56px 0;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #f3efe8;
-      border: 1px solid #ddd6ca;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: 40px;
-      margin: 0 0 16px;
-      line-height: 1.3;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin: 0 0 10px;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    .section {
-      padding: 48px 0;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      border: 1px solid #ebe7e1;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 12px 20px;
-      border-radius: 14px;
-      background: #222;
-      color: white;
-      font-weight: 700;
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .person-image {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 18px;
-      background: #ece8e1;
-      display: block;
-    }
-
-    .person-no {
-      font-size: 14px;
-      color: #777;
-      font-weight: 700;
-    }
-
-    .person-role {
-      color: #666;
-      margin-top: 4px;
-    }
-
-    .person-copy {
-      margin-top: 16px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .person-meta {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .person-meta div {
-      margin-top: 8px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      background: #f1ede7;
-      color: #555;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
-    }
-
-    .footer {
-      border-top: 1px solid #e5dfd6;
-      padding: 24px 0 40px;
-      color: #777;
-      font-size: 14px;
-      background: #fff;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 800px) {
-      h1 {
-        font-size: 30px;
-      }
-
-      .people-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="小島の100人プロジェクトで出会った13人の紹介。">
+  <title>出会った人たち｜小島の100人プロジェクト</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="people-data.js" defer></script>
+  <script src="site.js" defer></script>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="badge">小島の100人プロジェクト</div>
-      <h1>出会った人たち</h1>
-      <p>
-        100人の人に会って話を聴くプロジェクトの記録です。<br>
-        一人ひとりの人生の選択や言葉が、このプロジェクトを前に進めています。
-      </p>
-      <a class="button" href="index.html">トップページに戻る</a>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">小島の100人プロジェクト</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+      <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+        <a href="index.html#project">プロジェクト</a>
+        <a href="index.html#profile">小島について</a>
+        <a href="index.html#services">できること</a>
+        <a href="people.html">出会った人たち</a>
+        <a class="nav-contact" href="index.html#request">講演・ご相談</a>
+      </nav>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="people-grid">
-
-        <article class="card">
-          <div class="person-no">No.001</div>
-          <img class="person-image" src="person001.jpg" alt="谷村一成さんの写真">
-          <h2 style="margin-top:16px;">谷村一成</h2>
-          <div class="person-role">NPO法人みんなの進路委員会 代表</div>
-          <div class="person-copy">見えていない世界へ踏み出すことも、進路選択のひとつ。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>NPO法人みんなの進路委員会代表。清水高校で毎年「NEXTジョン万プロジェクト」を実施し、生徒や教員の視野を広げる活動を続けている。</div>
-            <div><strong>学び：</strong>見えている範囲から選ぶだけが進路ではない。見えない世界へ飛び出すこと自体も進路選択なのだと学んだ。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#教育</span>
-            <span class="tag">#キャリア教育</span>
-            <span class="tag">#探究</span>
-            <span class="tag">#海外</span>
-            <span class="tag">#挑戦</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="person-no">No.002</div>
-          <img class="person-image" src="person002-003.jpg" alt="のなみモカさんの写真">
-          <h2 style="margin-top:16px;">のなみモカ</h2>
-          <div class="person-role">大学生（海外進学に挑戦）</div>
-          <div class="person-copy">固定された進路観にとらわれず、自分の道を切り開く。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>リトアニアの大学に在籍し、カナダの大学への編入を目指す学生。自ら学費を稼ぎながら海外進学に挑戦している。</div>
-            <div><strong>学び：</strong>年齢は関係ない。自ら道を切り開いていく行動力そのものが、大きな学びになると感じた。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#学生</span>
-            <span class="tag">#海外</span>
-            <span class="tag">#挑戦</span>
-            <span class="tag">#キャリア</span>
-            <span class="tag">#語学</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="person-no">No.003</div>
-          <img class="person-image" src="person002-003.jpg" alt="岡崎純來さんの写真">
-          <h2 style="margin-top:16px;">岡崎純來</h2>
-          <div class="person-role">高校生・留学経験スピーカー</div>
-          <div class="person-copy">制度に縛られず、自分の学びを主体的に設計する。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>高校生でありながら留学を実現し、その経験を語るスピーカーとして活動。笑顔のまま話し続けるプレゼン力も印象的。</div>
-            <div><strong>学び：</strong>経験の深さは言葉の力になる。高校生でも挑戦する人の言葉は大人に強く響くと感じた。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#学生</span>
-            <span class="tag">#留学</span>
-            <span class="tag">#挑戦</span>
-            <span class="tag">#教育</span>
-            <span class="tag">#プレゼン</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="person-no">No.004</div>
-          <img class="person-image" src="person004 (2).jpg" alt="森田幸浩さんの写真">
-          <h2 style="margin-top:16px;">森田幸浩</h2>
-          <div class="person-role">フランス料理ケータリング『voyage』経営</div>
-          <div class="person-copy">「このままでいいのか」という問いに、生き方で答える。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>安定ではなく、自分の問いに正直に生きることを選んだ人。その姿そのものが強いメッセージになっている。</div>
-            <div><strong>学び：</strong>問いに向き合い続けること、その覚悟こそが生き方になると感じた。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#起業</span>
-            <span class="tag">#料理</span>
-            <span class="tag">#移住</span>
-            <span class="tag">#キャリア転換</span>
-            <span class="tag">#挑戦</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="person-no">No.005</div>
-          <img class="person-image" src="person005.jpg" alt="中村早知さんの写真">
-          <h2 style="margin-top:16px;">中村早知</h2>
-          <div class="person-role">新渡戸文化中学校・高等学校 探究主任／国語科教員</div>
-          <div class="person-copy">「本来、探究とは何なのか」を問い続ける。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>宿毛市出身。都立高校教員を経て、学校改革に挑戦。探究の本質を問い続けながら、教育の在り方そのものに向き合っている。</div>
-            <div><strong>学び：</strong>探究とは活動名ではなく、問い続ける姿勢そのものだと気づかされた。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#教育</span>
-            <span class="tag">#探究</span>
-            <span class="tag">#学校改革</span>
-            <span class="tag">#国語</span>
-            <span class="tag">#挑戦</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="person-no">No.006</div>
-          <img class="person-image" src="person006.jpg" alt="﨑山沙耶香さんの写真">
-          <h2 style="margin-top:16px;">﨑山沙耶香</h2>
-          <div class="person-role">高校美術教員</div>
-          <div class="person-copy">見た目だけでなく、流れも空気もデザインする。</div>
-          <div class="person-meta">
-            <div><strong>概要：</strong>高知県出身の美術教員。作品だけでなく、仕事や人との関係性まで含めて全体を設計する力を持つ。</div>
-            <div><strong>学び：</strong>デザインとは見た目ではなく、流れや体験をつくる力だと実感した。</div>
-          </div>
-          <div class="tags">
-            <span class="tag">#教育</span>
-            <span class="tag">#美術</span>
-            <span class="tag">#デザイン</span>
-            <span class="tag">#発想</span>
-            <span class="tag">#支援</span>
-          </div>
-        </article>
-
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-kicker">100 PEOPLE, 100 STORIES</p>
+        <h1>出会った人たち</h1>
+        <p>100人の人に会って話を聴くプロジェクトの記録です。<br>一人ひとりの人生の選択や言葉が、このプロジェクトを前に進めています。<br>現在 <strong data-people-count>13</strong> 人。気になる人の「詳しく見る」から詳しい内容を読めます。</p>
+        <div class="button-row"><a class="button button-light" href="index.html">トップページへ戻る</a></div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="section">
+      <div class="container"><div class="people-list" id="people-list"></div></div>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <div class="container">
-      © 小島の100人プロジェクト / Ojima 100 People Project
-    </div>
-  </footer>
+  <footer class="footer"><div class="container">© 小島の100人プロジェクト / Ojima 100 People Project</div></footer>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"42fcae2c3ddd4a71bd845578c93f13e4"}'></script>
 </body>
 </html>
