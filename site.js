@@ -110,4 +110,24 @@
       menuButton.setAttribute("aria-expanded", "false");
     }));
   }
+
+  const jumpButton = document.querySelector(".mobile-jump-button");
+  const jumpLinks = document.querySelector(".mobile-jump-links");
+  if (jumpButton && jumpLinks) {
+    const closeJumpMenu = () => {
+      jumpLinks.classList.remove("open");
+      jumpButton.setAttribute("aria-expanded", "false");
+    };
+    jumpButton.addEventListener("click", () => {
+      const isOpen = jumpLinks.classList.toggle("open");
+      jumpButton.setAttribute("aria-expanded", String(isOpen));
+    });
+    jumpLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeJumpMenu));
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".mobile-jump-menu")) closeJumpMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeJumpMenu();
+    });
+  }
 })();
