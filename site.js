@@ -35,7 +35,7 @@
     </article>`;
 
   const compactCard = (person) => `
-    <article class="card compact-person" id="person-${escapeHTML(person.no)}">
+    <article class="card compact-person${Number(person.no) >= 10 ? " compact-person-wide" : ""}" id="person-${escapeHTML(person.no)}">
       <img class="person-image" src="${escapeHTML(person.image)}" alt="${escapeHTML(person.name)}さんと小島大和の対談写真" loading="lazy">
       <div class="compact-body">
         <div class="person-no">No.${escapeHTML(person.no)}</div>
