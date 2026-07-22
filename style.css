@@ -183,8 +183,9 @@ button { font: inherit; }
 .page-hero { padding: 52px 0; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #fff 0%, var(--surface-warm) 100%); }
 .page-hero h1 { margin: 8px 0 0; font-size: clamp(36px, 5vw, 50px); }
 .page-hero p { max-width: 780px; margin: 12px 0 0; color: var(--muted); }
-.people-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.people-list { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; gap: 18px; }
 .compact-person { display: grid; grid-template-columns: 190px 1fr; min-height: 245px; overflow: hidden; }
+.compact-person .person-image-frame { height: 100%; min-height: 245px; overflow: hidden; background: #ece8e1; }
 .compact-person .person-image { height: 100%; min-height: 245px; }
 .compact-person-wide { grid-template-columns: 240px 1fr; }
 .compact-person-wide .person-image { object-fit: contain; background: #171717; }
@@ -192,6 +193,22 @@ button { font: inherit; }
 .photo-focus-012 .person-image { object-fit: cover; background: #ece8e1; }
 .photo-focus-010 .person-image { object-position: 20% center; }
 .photo-focus-012 .person-image { object-position: 12% center; }
+.compact-person.is-expanded { grid-template-columns: 240px 1fr; }
+.compact-person.is-expanded .person-image-frame {
+  height: 360px;
+  min-height: 360px;
+}
+.compact-person.is-expanded .person-image {
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: var(--expanded-photo-focus, 50%) center;
+  background: #ece8e1;
+}
+.compact-person.is-expanded.expanded-photo-zoom .person-image {
+  transform: scale(1.5);
+  transform-origin: var(--expanded-zoom-origin, 50%) 50%;
+}
 .compact-body { padding: 21px; }
 .compact-body .person-name { font-size: 23px; }
 .compact-body .person-copy { font-size: 15px; }
@@ -247,6 +264,7 @@ button { font: inherit; }
   .profile-image { height: 350px; }
   .person-image { height: 220px; }
   .compact-person { display: block; }
+  .compact-person .person-image-frame { height: 205px; min-height: 0; }
   .compact-person .person-image { height: 205px; min-height: 0; }
   .person-card-body, .compact-body { padding: 20px; }
 }
