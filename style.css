@@ -188,6 +188,10 @@ button { font: inherit; }
 .compact-person .person-image { height: 100%; min-height: 245px; }
 .compact-person-wide { grid-template-columns: 240px 1fr; }
 .compact-person-wide .person-image { object-fit: contain; background: #171717; }
+.photo-focus-010 .person-image,
+.photo-focus-012 .person-image { object-fit: cover; background: #ece8e1; }
+.photo-focus-010 .person-image { object-position: 20% center; }
+.photo-focus-012 .person-image { object-position: 12% center; }
 .compact-body { padding: 21px; }
 .compact-body .person-name { font-size: 23px; }
 .compact-body .person-copy { font-size: 15px; }
