@@ -34,8 +34,13 @@
       </div>
     </article>`;
 
+  const photoFocusClass = {
+    "010": " photo-focus-010",
+    "012": " photo-focus-012"
+  };
+
   const compactCard = (person) => `
-    <article class="card compact-person${Number(person.no) >= 10 ? " compact-person-wide" : ""}" id="person-${escapeHTML(person.no)}">
+    <article class="card compact-person${Number(person.no) >= 10 ? " compact-person-wide" : ""}${photoFocusClass[person.no] || ""}" id="person-${escapeHTML(person.no)}">
       <img class="person-image" src="${escapeHTML(person.image)}" alt="${escapeHTML(person.name)}さんと小島大和の対談写真" loading="lazy">
       <div class="compact-body">
         <div class="person-no">No.${escapeHTML(person.no)}</div>
