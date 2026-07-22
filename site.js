@@ -39,9 +39,30 @@
     "012": " photo-focus-012"
   };
 
+  const expandedPhotoFocus = {
+    "001": "65%",
+    "002": "93%",
+    "003": "61%",
+    "004": "15%",
+    "005": "90%",
+    "006": "10%",
+    "007": "32%",
+    "008": "75%",
+    "009": "30%",
+    "010": "20%",
+    "011": "78%",
+    "012": "27%",
+    "013": "68%"
+  };
+
+  const expandedZoomOrigin = {
+    "002": "47%",
+    "003": "45%"
+  };
+
   const compactCard = (person) => `
-    <article class="card compact-person${Number(person.no) >= 10 ? " compact-person-wide" : ""}${photoFocusClass[person.no] || ""}" id="person-${escapeHTML(person.no)}">
-      <img class="person-image" src="${escapeHTML(person.image)}" alt="${escapeHTML(person.name)}さんと小島大和の対談写真" loading="lazy">
+    <article class="card compact-person${Number(person.no) >= 10 ? " compact-person-wide" : ""}${photoFocusClass[person.no] || ""}${person.no === "002" || person.no === "003" ? " expanded-photo-zoom" : ""}" id="person-${escapeHTML(person.no)}" style="--expanded-photo-focus: ${expandedPhotoFocus[person.no] || "50%"}; --expanded-zoom-origin: ${expandedZoomOrigin[person.no] || "50%"}">
+      <div class="person-image-frame"><img class="person-image" src="${escapeHTML(person.image)}" alt="${escapeHTML(person.name)}さんと小島大和の対談写真" loading="lazy"></div>
       <div class="compact-body">
         <div class="person-no">No.${escapeHTML(person.no)}</div>
         <h2 class="person-name">${escapeHTML(person.name)}さん</h2>
@@ -66,7 +87,14 @@
   if (featured) featured.innerHTML = PEOPLE.slice(-4).map(featuredCard).join("");
 
   const list = document.querySelector("#people-list");
-  if (list) list.innerHTML = PEOPLE.map(compactCard).join("");
+  if (list) {
+    list.innerHTML = PEOPLE.map(compactCard).join("");
+    list.querySelectorAll(".detail-toggle").forEach((details) => {
+      details.addEventListener("toggle", () => {
+        details.closest(".compact-person")?.classList.toggle("is-expanded", details.open);
+      });
+    });
+  }
 
   const menuButton = document.querySelector(".menu-button");
   const navLinks = document.querySelector(".nav-links");
