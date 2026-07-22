@@ -186,6 +186,8 @@ button { font: inherit; }
 .people-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .compact-person { display: grid; grid-template-columns: 190px 1fr; min-height: 245px; overflow: hidden; }
 .compact-person .person-image { height: 100%; min-height: 245px; }
+.compact-person-wide { grid-template-columns: 240px 1fr; }
+.compact-person-wide .person-image { object-fit: contain; background: #171717; }
 .compact-body { padding: 21px; }
 .compact-body .person-name { font-size: 23px; }
 .compact-body .person-copy { font-size: 15px; }
