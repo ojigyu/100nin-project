@@ -146,6 +146,7 @@ button { font: inherit; }
 }
 .request-main p:not(.section-kicker) { color: rgba(255,255,255,.82); }
 .request-main .section-kicker { color: #f1b24d; }
+.request-title-note { white-space: nowrap; }
 .request-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .request-options > div { padding: 18px; border: 1px solid rgba(255,255,255,.14); border-radius: 17px; background: rgba(255,255,255,.07); }
 .request-options strong { display: block; margin-bottom: 7px; }
