@@ -6,6 +6,12 @@
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
+  const trackEvent = (eventName, parameters = {}) => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, parameters);
+    }
+  };
+
   const tagsHTML = (tags) => `
     <div class="tags">
       ${tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
@@ -68,7 +74,7 @@
         <h2 class="person-name">${escapeHTML(person.name)}さん</h2>
         <div class="person-role">${escapeHTML(person.role)}</div>
         <div class="person-copy">${escapeHTML(person.copy)}</div>
-        <details class="detail-toggle">
+        <details class="detail-toggle" data-person-number="${escapeHTML(person.no)}" data-person-name="${escapeHTML(person.name)}">
           <summary>詳しく見る</summary>
           ${detailHTML(person)}
           ${tagsHTML(person.tags)}
@@ -92,9 +98,25 @@
     list.querySelectorAll(".detail-toggle").forEach((details) => {
       details.addEventListener("toggle", () => {
         details.closest(".compact-person")?.classList.toggle("is-expanded", details.open);
+        if (details.open) {
+          trackEvent("person_detail_open", {
+            person_number: details.dataset.personNumber,
+            person_name: details.dataset.personName
+          });
+        }
       });
     });
   }
+
+  document.querySelectorAll("[data-contact-location]").forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("contact_click", {
+        contact_location: link.dataset.contactLocation,
+        link_text: link.textContent.trim(),
+        link_url: link.href
+      });
+    });
+  });
 
   const menuButton = document.querySelector(".menu-button");
   const navLinks = document.querySelector(".nav-links");
