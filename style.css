@@ -190,9 +190,11 @@ button { font: inherit; }
 .compact-person-wide { grid-template-columns: 240px 1fr; }
 .compact-person-wide .person-image { object-fit: contain; background: #171717; }
 .photo-focus-010 .person-image,
-.photo-focus-012 .person-image { object-fit: cover; background: #ece8e1; }
+.photo-focus-012 .person-image,
+.photo-focus-014 .person-image { object-fit: cover; background: #ece8e1; }
 .photo-focus-010 .person-image { object-position: 20% center; }
 .photo-focus-012 .person-image { object-position: 12% center; }
+.photo-focus-014 .person-image { object-position: 25% center; }
 .compact-person.is-expanded { grid-template-columns: 240px 1fr; }
 .compact-person.is-expanded .person-image-frame {
   height: 360px;

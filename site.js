@@ -25,7 +25,7 @@
     </div>`;
 
   const featuredCard = (person) => `
-    <article class="card person-card">
+    <article class="card person-card${person.no === "014" ? " photo-focus-014" : ""}">
       <img class="person-image" src="${escapeHTML(person.image)}" alt="${escapeHTML(person.name)}さんと小島大和の対談写真" loading="lazy">
       <div class="person-card-body">
         <div class="person-no">No.${escapeHTML(person.no)}</div>
@@ -42,7 +42,8 @@
 
   const photoFocusClass = {
     "010": " photo-focus-010",
-    "012": " photo-focus-012"
+    "012": " photo-focus-012",
+    "014": " photo-focus-014"
   };
 
   const expandedPhotoFocus = {
@@ -58,7 +59,8 @@
     "010": "20%",
     "011": "78%",
     "012": "27%",
-    "013": "60%"
+    "013": "60%",
+    "014": "25%"
   };
 
   const expandedZoomOrigin = {

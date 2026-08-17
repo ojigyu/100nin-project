@@ -128,5 +128,15 @@ const PEOPLE = [
     learning: "自分が苦労して得た経験を、自分だけのものにしない。特別な教材や難しい言葉がなくても、家族との会話や日々の暮らしの中から、学びと優しさは生み出せるのだと教えられた。",
     tags: ["教育", "家族", "おうち道徳", "ファイナンシャルプランナー", "国際交流"],
     facebook: "https://www.facebook.com/yamato.ojima/posts/pfbid02b8ancNrUDiH8ELvFPZvNjMRyTxBCanZq564o6Xd2gJStN429ruUcxBPgCdHrepiKl"
+  },
+  {
+    no: "014", image: "person014.jpg", name: "大竹哲郎",
+    role: "株式会社F＆Lアソシエイツ 代表取締役社長／一般財団法人エス・インパクト 代表理事",
+    copy: "肩書きを前に出さず、優しさで人の背中を押す人。",
+    summary: "大企業IHIで23年間、人事一筋。産業機械や造船、宇宙開発事業まで幅広く関わった経験を生かし、現在は株式会社F＆Lアソシエイツの代表取締役社長として、コンサルティングやセミナー講師を務めている。一般財団法人エス・インパクトの代表理事をはじめ、さまざまな組織でも活動しながら、人と社会の新しいつながりを生み出している。",
+    turningPoint: "FUNKISTの稲佐山ワンマンライブを支えるオンラインミーティングでの出会い。南アフリカの植林ツアーでFUNKISTと出会ったタケさんと、長崎で初めてリアルに対面し、ライブやお酒を一緒に楽しむ同志へとつながっていった。",
+    learning: "肩書きや経歴がどれほど大きくても、その人らしさは目の前の人にどう向き合うかにあらわれる。実績を前に出さず、いつもと変わらない優しい笑顔で寄り添い、さらっと背中を押す姿から、人との向き合い方を教えてもらった。",
+    tags: ["経営", "人事", "コンサルティング", "社会課題", "つながり"],
+    facebook: "https://www.facebook.com/yamato.ojima/posts/pfbid02rmNMPtXXBMvFWMR1BBSG7fFSU4UXqiyApp1gr4mqojhUX1t52aeV2gULip94tazKl?locale=ja_JP"
   }
 ];
